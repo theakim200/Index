@@ -1,0 +1,305 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Waiting Room Styling */
+.title-container {
+    text-align: center;
+}
+
+.main-title {
+    font-size: 4rem;
+    color: #ff0;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 400;
+    -webkit-text-stroke: 1px black;
+}
+
+.status-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#status-message {
+    font-size: 1.5rem;
+    color: #ff0;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.dots {
+    font-size: 1.5rem;
+    color: #ff0;
+    text-align: left;
+    display: inline-block;
+    width: 2rem;
+}
+
+#enter-button {
+    background: none;
+    border: none;
+    color: #ff0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Game Area Styling */
+#canvas-wrapper, .waiting-wrapper {
+    width: calc(100% - 50px); /* 25px spacing on each side */
+    max-width: 1200px;
+    margin: 25px auto;
+    position: relative;
+}
+
+#canvas-container, .waiting-container {
+    width: 100%;
+    position: relative;
+    background-color: #212121;
+    color: #000;
+}
+
+#task-instruction {
+    -webkit-text-stroke: 1px black;
+    font-style: italic;
+}
+
+/* Maintain 3:2 aspect ratio */
+#canvas-container::before {
+    content: "";
+    display: block;
+    padding-top: 66.67%; /* 2/3 = 66.67% */
+}
+.waiting-container::before {
+    content: "";
+    display: block;
+    padding-top: 66.67%; /* 2/3 = 66.67% */
+}
+
+#canvas-container > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.title-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -12%);
+}
+
+/* Control UI */
+#controls {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+}
+
+#episode-title {
+    flex-grow: 1;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* House elements for episode 1 */
+.house {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #EBEBEB;
+}
+/* Add a sky background that only covers the top portion */
+.house::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%; /* Match the roof height */
+    background-color: #787878; /* Sky color */
+    z-index: 0;
+}
+
+.roof {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: #C6C6C6;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    z-index: 1;
+}
+
+.window {
+    position: absolute;
+    width: 10%;
+    height: 15%;
+    background-color: #C6C6C6;
+    transition: background-color 0.3s;
+}
+
+.window.on {
+    background-color: #ff0;
+}
+
+.door {
+    position: absolute;
+    width: 10%;
+    height: 35%;
+    background-color: #C6C6C6;
+    bottom: 0;
+}
+
+/* Episode 2 - The Tissue */
+.tissue-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #EBEBEB;
+}
+
+.tissue-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-color: #787878;
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+.tissue {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: #CCCCCC;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transition: height 0.1s ease, top 0.1s ease;
+    top: 0;
+    cursor: pointer;
+}
+
+/* Ending Credits */
+.ending-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #212121;
+}
+
+.end-title {
+    font-size: 4rem;
+    color: #ff0;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+#start-again-btn {
+    background: none;
+    border: none;
+    color: #ff0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Success */
+#success {
+    background: rgba(58, 58, 58, 0.80);
+    backdrop-filter: blur(23px);
+    z-index: 100;
+    -webkit-text-stroke: 1px black;
+    font-style: italic;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Partner cursor */
+#partner-cursor {
+    position: absolute;
+    width: 22px; /* Adjust size as needed */
+    height: 22px; /* Adjust size as needed */
+    transform: translate(-5px, -5px); /* Adjust positioning so the tip of the arrow is at the cursor point */
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+}
+
+/* Media queries for responsive layout */
+@media (max-height: 700px) {
+    #canvas-wrapper {
+        margin: 15px auto;
+        width: calc(100% - 30px);
+    }
+    
+    .main-title {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+}

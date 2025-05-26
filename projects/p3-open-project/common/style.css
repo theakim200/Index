@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+.controller {
+    padding: 0 8px;
+}
+#comparison-area {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+#dropdown-menu {
+    z-index: 100;
+}
+img {
+    object-fit: fill !important;
+}

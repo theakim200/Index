@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #F23121 0%, #D23428 14%, #A03831 27.5%, #6E2F2C 50.5%, #63506B 72.5%, #536AAD 86%, #4478E6 100%);
+}
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    flex: 10;
+}
+.right {
+    flex: 0;
+}
+
+.top-left {
+    height: 10vh;
+}
+.bottom-left {
+    height: 90vh;
+}
+.top-right {
+    height: 10vh;
+}
+.bottom-right {
+    height: 90vh;
+}
+
+.top-left, .top-right, .bottom-left, .bottom-right {
+    transition: height 0.5s ease-in-out;
+}
+
+.left, .right {
+    transition: flex 0.5s ease-in-out;
+}

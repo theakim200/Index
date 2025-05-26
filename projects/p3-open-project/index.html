@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensing Scale</title>
+    <link rel="stylesheet" href="common/style.css">
+</head>
+<body>
+    <div>
+        <div class="controller">
+        <div>
+            <h1>Sensing Scale</h1>            
+        </div>
+        
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="item-name" value="Your Item"></td>
+                <td>width:</td>
+                <td><input type="number" id="item-width" value="10"></td>
+                <td>height:</td>
+                <td><input type="number" id="item-height" value="10"></td>
+                <td>units:</td>
+                <td>
+                    <select id="item-unit">
+                        <option value="mm">mm</option>
+                        <option value="cm" selected>cm</option>
+                        <option value="m" selected>m</option>
+                        <option value="km" selected>km</option>
+                        <option value="inch">inch</option>
+                        <option value="ft">ft</option>
+                        <option value="yard">yard</option>
+                        <option value="mile">mile</option>
+                        <option value="pt">pt</option>
+                        <option value="μm">μm</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+        <div>
+            <button id="screen-mode" style="background-color: black; color: white;">Screen Mode</button>
+            <button id="real-life-mode">Real Life Mode</button>
+        </div>
+        
+        <div>
+            <button id="add-default-item">Add Item</button>
+            <div id="dropdown-menu" style="display: none; position: absolute; background-color: white; border: 1px solid black;">
+                <!-- Default items will be added here via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Calibration section -->
+        <div id="calibration-section" style="display: none; margin-top: 20px; border: 1px solid black; padding: 10px;">
+            <h3>Calibration</h3>
+            <p>Place a credit card on your screen and adjust the slider until the digital card matches the physical card size:</p>
+            <input type="range" id="calibration-slider" min="1" max="10" step="0.1" value="3.78">
+            <button id="save-calibration">Save Calibration</button>
+        </div>
+        </div>
+        
+        <div id="comparison-area" style="margin-top: 20px;">
+            <!-- Items will be added here via JavaScript -->
+        </div>
+    </div>
+
+    <script src="common/script.js"></script>
+</body>
+</html>
