@@ -30,9 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let partnerId = null;
     let currentEpisode = 'opening';
     let isReady = false;
-    let lastCursorUpdate = 0; // To throttle cursor updates
+    let lastCursorUpdate = 0;
 
-    // Add this line here to set the opening title
     document.getElementById('episode-title').textContent = "Sisters: Opening";
 
     

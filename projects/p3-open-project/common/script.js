@@ -1,4 +1,4 @@
-// Default items database with image paths
+// Default items database
 const defaultItems = [
     { name: "ID Card", width: 85.6, height: 54, unit: "mm"},
     { name: "A4 Paper", width: 210, height: 297, unit: "mm", image: "src/a4.png" },
@@ -68,8 +68,7 @@ function initApp() {
         name: "Your Item",
         width: 10,
         height: 10,
-        unit: "cm",
-        // image will be added via upload
+        unit: "cm",        
     };
     addItemToComparison(customItem);
     
